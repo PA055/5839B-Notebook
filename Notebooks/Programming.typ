@@ -6,7 +6,7 @@
 
 
 #create-frontmatter-entry(
-  title: "Table of Contents",
+  title: "Table of deez nuts",
   type: "decide",
   date: datetime(year: 2024, month: 1, day: 1),
 )[
