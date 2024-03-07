@@ -5,6 +5,7 @@
 #import "./label.typ": *
 #import "./team.typ": *
 #import "./pro-con.typ": *
+#import "comparison.typ": *
 #import "./decision-matrix.typ": *
 #import "./tournament.typ": *
 #import "./graphs.typ": *
