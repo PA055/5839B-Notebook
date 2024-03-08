@@ -138,6 +138,15 @@
 
 #glossary.add-term("GUI")[Graphical User Interface - A way to diplay information on the robot brain in a clean and presentable manner]
 
+#glossary.add-term("PID")[Proportional, Integral, Derivitive - A type of control loop that takes in error and returns new motor value]
+
 #create-appendix-entry(title: "Glossary")[
   #components.glossary()
+]
+
+#create-appendix-entry(title: "Credits")[
+   - Purdue Sigbots
+   - Theo from Team 3187
+   - Felix from 53E
+   - 
 ]
