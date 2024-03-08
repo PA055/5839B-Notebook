@@ -26,6 +26,7 @@
   team-name: none,
   season: none,
   year: none,
+  title: none,
   cover: none,
   theme: (:),
   filler-page: false,
@@ -35,7 +36,7 @@
   show: doc => rules(doc)
 
   let cover-content = if cover == none {
-    let context = (team-name: team-name, season: season, year: year)
+    let context = (team-name: team-name, season: season, year: year, title: title)
     print-cover(context: context, theme: theme)
   } else {
     cover

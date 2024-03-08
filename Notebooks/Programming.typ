@@ -2,7 +2,7 @@
 #import themes.radial: radial-theme, components, colors
 #import colors: *
 
-#show: notebook.with(theme: radial-theme, team-name: "5839B", season: "Water Game", year: "2024-2025")
+#show: notebook.with(theme: radial-theme, title: "5839B's Programming Notebook", team-name: "5839B", season: "Water Game", year: "2024-2025")
 
 #create-frontmatter-entry(
   title: "Table of Contents",
@@ -72,4 +72,72 @@
     Our goal is to finish most ( > 95% ) of the library before _*September 10, 2024*_  
     This will allow us to have a reasonable amount of time to actually create the autonomous and any other functions that come up while doing so
   ]
+]
+
+#create-body-entry(
+  title: "Library Structure",
+  type: "decide",
+  date: datetime(year: 2024, month: 3, day: 8),
+  author: "Praful Adiga",
+  witness: "Brandon"
+)[
+  Using proper C++ coding styles is a must in a project of this size, so we need a consistant and readable file structure which the following diagram will show
+
+  ```
+    include/
+    ├─ lib5839/
+    │  ├─ robot/
+    │  │  ├─ flywheel.hpp
+    │  │  ├─ catapult.hpp
+    │  │  ├─ lift.hpp
+    │  │  ├─ wings.hpp
+    │  │  ├─ PTO.hpp
+    │  ├─ chassis/
+    │  │  ├─ controller/
+    │  │  │  ├─ purePursuitController.hpp
+    │  │  │  ├─ purePursuitControllerPID.hpp
+    │  │  ├─ model/
+    │  │  │  ├─ mecanumDriveModel.hpp
+    │  │  │  ├─ boostedMecanumDriveModel.hpp
+    │  ├─ odometry/
+    │  │  ├─ trackingPod.hpp
+    │  │  ├─ threeWheelOdometry.hpp
+    │  ├─ GUI/
+    │  │  ├─ odomDebugGUI.hpp
+    │  │  ├─ PIDTunerGUI.hpp
+    │  ├─ utils/
+    │  │  ├─ odomMath.hpp
+    │  │  ├─ asset.hpp
+    │  ├─ api.hpp
+  src/
+    ├─ lib5839/
+    │  ├─ robot/
+    │  │  ├─ flywheel.cpp
+    │  │  ├─ catapult.cpp
+    │  │  ├─ lift.cpp
+    │  │  ├─ wings.cpp
+    │  │  ├─ PTO.cpp
+    │  ├─ chassis/
+    │  │  ├─ controller/
+    │  │  │  ├─ purePursuitController.cpp
+    │  │  │  ├─ purePursuitControllerPID.cpp
+    │  │  ├─ model/
+    │  │  │  ├─ mecanumDriveModel.cpp
+    │  │  │  ├─ boostedMecanumDriveModel.cpp
+    │  ├─ odometry/
+    │  │  ├─ trackingPod.cpp
+    │  │  ├─ threeWheelOdometry.cpp
+    │  ├─ GUI/
+    │  │  ├─ odomDebugGUI.cpp
+    │  │  ├─ PIDTunerGUI.cpp
+    │  ├─ utils/
+    │  │  ├─ odomMath.cpp
+  ```
+]
+
+
+#glossary.add-term("GUI")[Graphical User Interface - A way to diplay information on the robot brain in a clean and presentable manner]
+
+#create-appendix-entry(title: "Glossary")[
+  #components.glossary()
 ]
