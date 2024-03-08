@@ -16,6 +16,7 @@
 ///   - "equation"
 ///   - "decision"
 ///   - "build"
+///   - "goal"
 /// - body (content): The content of the admonition
 /// -> content
 #let admonition(type: none, body) = {

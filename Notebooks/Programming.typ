@@ -4,7 +4,6 @@
 
 #show: notebook.with(theme: radial-theme, team-name: "5839B", season: "Water Game", year: "2024-2025")
 
-
 #create-frontmatter-entry(
   title: "Table of Contents",
 )[
@@ -16,7 +15,7 @@
   type: "decide",
   date: datetime(year: 2024, month: 3, day: 5),
   author: "Praful Adiga",
-  witness: "Brando"
+  witness: "Brandon",
 )[
   = Post Season Notes
   With the end of the Over Under season, sadly we didn't make it to worlds, we evalutated our progress and decided that we need a better programming library. My job as the coder is to record and create a programming library that serves all our needs for the improved robot.
@@ -36,7 +35,7 @@
     ), 
     ("PROS",     1, 5, 1, 4, 4, 1),
     ("OkapiLib", 4, 4, 3, 4, 4, 3),
-    ("LemLib",   2, 3, 3, 2, 1, 1),
+    ("LemLib",   2, 3, 4, 2, 1, 1),
   )
 
   #components.admonition(type: "note")[
@@ -67,6 +66,10 @@
    - *PID and other Control Loops* - this will allow us to have fast and accurate movements
    - *Pure Pursuit* - Pure Pursuit is an algorithm that allows the robot to follow paths smoothly, even with disturbances, which is nessasary for a fast and accurate autonomous period
    - *Asset* - this is a helpful utility from LemLib that would be very helpful in creating Pure Pursuit paths, as it allows the coder to not have to remove and reinsert the SD card every time a path is updated
-   - *GUI* - this is nessasary as it allows us to live tune variables, for exmaple, we can create a PID tuner wo we don't have to recompile after changing a single variable, this will speed up tuning by a significant amount as half the time it takes to to tune PID is spent waiting for code to compile
+   - *GUI* - this is nessasary as it allows us to live tune variables, for exmaple, we can create a PID tuner so we don't have to recompile after changing a single variable, this will speed up tuning by a significant amount as half the time it takes to to tune PID is spent waiting for code to compile. This will also help out robot look cleaner as a build
 
+  #components.admonition(type: "goal")[
+    Our goal is to finish most ( > 95% ) of the library before _*September 10, 2024*_  
+    This will allow us to have a reasonable amount of time to actually create the autonomous and any other functions that come up while doing so
+  ]
 ]

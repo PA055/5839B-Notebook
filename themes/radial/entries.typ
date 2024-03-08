@@ -5,10 +5,10 @@
 #import "./metadata.typ": entry-type-metadata
 
 // TODO: make an actual cover
-#let cover(context: (:)) = [
+#let cover(context: (:), title: "5839B's Engineering Design Notebook") = [
   #set align(center + horizon)
   #set text(size: 24pt)
-  *5839B Engineering Design Notebook*
+  *#title*
 ]
 
 #let frontmatter-entry(context: (:), body) = {

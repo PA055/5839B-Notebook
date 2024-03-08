@@ -28,6 +28,7 @@
   year: none,
   cover: none,
   theme: (:),
+  filler-page: false,
   body,
 ) = {
   let rules = theme.rules
@@ -41,7 +42,9 @@
   }
   page(margin: 0pt, cover-content)
 
-  page[] // Filler page
+  if filler-page {
+    page[] // Filler page
+  }
 
   print-entries(theme: theme)
   body // FIXME: this should be ignored, but the document doesn't properly render without it.

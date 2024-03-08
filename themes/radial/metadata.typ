@@ -22,4 +22,5 @@
   "equation": (icon: icons.function, color: orange, title: "Equation"),
   "decision": (icon: icons.target, color: blue, title: "Final Decision"),
   "build": (icon: icons.hammer, color: red, title: "Build Complete"),
+  "goal": (icon: icons.target, color: navy, title: "Goal"),
 )
