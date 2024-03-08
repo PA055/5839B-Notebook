@@ -20,7 +20,5 @@
   author: "Andrew Charlton",
   witness: "Praful Adiga"
 )[
-  #table(
-    columns: 
-  )
+  
 ]
