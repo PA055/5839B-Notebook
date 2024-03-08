@@ -15,7 +15,7 @@
   type: "identify",
   date: datetime(year: 2024, month: 3, day: 5),
   author: "Praful Adiga",
-  witness: "Brandon",
+  witness: "Brandon Lewis",
 )[
   = Post Season Notes
   With the end of the Over Under season, sadly we didn't make it to worlds, we evalutated our progress and decided that we need a better programming library. My job as the coder is to record and create a programming library that serves all our needs for the improved robot.
@@ -79,7 +79,7 @@
   type: "identify",
   date: datetime(year: 2024, month: 3, day: 8),
   author: "Praful Adiga",
-  witness: "Brandon"
+  witness: "Brandon Lewis"
 )[
   Using proper C++ coding styles is a must in a project of this size, so we need a consistant and readable file structure which the following diagram will show
 
