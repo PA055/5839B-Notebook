@@ -12,7 +12,7 @@
 
 #create-body-entry(
   title: "First Steps",
-  type: "decide",
+  type: "identify",
   date: datetime(year: 2024, month: 3, day: 5),
   author: "Praful Adiga",
   witness: "Brandon",
@@ -76,7 +76,7 @@
 
 #create-body-entry(
   title: "Library Structure",
-  type: "decide",
+  type: "identify",
   date: datetime(year: 2024, month: 3, day: 8),
   author: "Praful Adiga",
   witness: "Brandon"

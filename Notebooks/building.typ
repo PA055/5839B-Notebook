@@ -17,7 +17,10 @@
   title: "First Steps",
   type: "decide",
   date: datetime(year: 2024, month: 3, day: 5),
+  author: "Andrew Charlton",
+  witness: "Praful Adiga"
 )[
-  something
-  i love big monkeys
+  #table(
+    columns: 
+  )
 ]
