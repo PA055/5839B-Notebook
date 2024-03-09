@@ -146,7 +146,7 @@
 
 #create-appendix-entry(title: "Credits")[
    - Purdue Sigbots
-   - Theo from Team 3187
-   - Felix from 53E
+   - Theo from Team 7842F/B
+   - Felix from 53E 
    - 
 ]
