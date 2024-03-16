@@ -318,13 +318,46 @@
    - getModel() - gets the chassis model the odometry is using
    - getScales() - get information about the position of the sensors, however since the positioning on our robot is incompatable with this function it will return an empty class
 
-  This odometry class will be updated to also include the imu on the robot after I work on kalman filtering, which will help improve the accuracy of the odometry 
+  This odometry class will be updated to also include the imu on the robot after we work on kalman filtering, which will help improve the accuracy of the odometry 
 
   #components.admonition(type: "tldr")[
     Odometry is a way for a robot to know its global position on the field by using 2-3 free spinning wheels, and using arcs to approximate the path the robot takes.
     
     The global position can be used to allow the robot to self correct even though major disturbances to the path.
   ]
+]
+
+#create-body-entry(
+  title: "Mecanum Drivetrain Model",
+  type: "program", 
+  date: datetime(year: 2024, month: 3, day: 12),
+  author: "Praful Adiga",
+  witness: "Brandon Lewis"
+)[
+  A Mecanum drivetrain is a type of holonomic drivetrain, which means it can move in all directions without having to face in the direction it needs to move, basically, it can move sideways.
+  
+  This is useful in both driver control and autonomous, in driver control, this would help the driver manuver around the field, avoiding conflicts with other teams, and better allowing the scoring of points around the field. And in autonomous this can allow the robot to not have to waste time tunring before and after moving.
+  
+  Using a tank drivetrain, to move to a point, the robot needs to first face that point, by turning to $arctan((Delta y) / (Delta x))$ radians where $Delta y$ is the difference between the robot's y position and the y position of the goal point, and similarly for $Delta x$ we can then use the distance formula $sqrt((Delta x)^2 + (Delta y)^2)$ to move forward until we reach the goal point, then finally we have to turn to the desired angle. This takes 3 steps, but using a holonomic drivetrain we can just do that in one step
+
+  To go from the robot's current position to a desired goal point, we first need to find the velocity and travel distance of each wheel seperately, we found 2 different methods of calculating velocity, one just added up the turn, forward and strafe velocities with differing signs for each wheel, while the other algorithm uses the sine and cosine functions to compute the wheel velocity for the forward and strafe directions but then it adds the turn velocity seperately. Both algorithms then need to normalize the values after adding the velocities together. However the first algorithm we mentioned is easier and gives a very similar result to the second algorithm, so we decided to use that algorithm.
+
+  To find the wheel velocities $V_(F L)$, $V_(F R)$, $V_(B L)$, $V_(B R)$ we add the turn ($V_T$), forward ($V_F$) and strafe ($V_S$) velocities in the following ways
+
+  #components.admonition(type: "equation")[
+    $ V_(F L) = V_F + V_S + V_T $
+    $ V_(F R) = V_F - V_S - V_T $
+    $ V_(B L) = V_F + V_S - V_T $
+    $ V_(B R) = V_F - V_S + V_T $
+    we then have to normalize the values:
+    if $max(V_(F L), V_(F R), V_(B L), V_(B R)) > V_"max"$ we need to multiply all wheel velocities by $V_"max" / V_"biggest"$ where $V_"biggest" = max(V_(F L), V_(F R), V_(B L), V_(B R))$    
+  ]
+
+  We first impliminted this in python VexCode so we can test if the equations work, the results can be seen at #link("https://https://github.com/PA055/5839B-Notebook/")
+
+  After the sucessful results of the VexCode prototype, we then started working on the implimentation in the library, the OkapiLib code syle guide mandates that we build off of the ChassisModel base class, we did this and used many of the same functions as the X-drive class as the drivetrains are almost the same, just some small differences in the kinematic equations.
+
+  The next step was to work on finding the travel distance for each wheel, this was not implimented in the X-drive class from OkapiLib so we decided to delay the development until after the Kalman Filtering. 
 ]
 
 #create-appendix-entry(title: "Appendix A: Odometry Derivation")[
@@ -362,7 +395,7 @@
 #glossary.add-term("pose")[a structure containing the x, y, and heading of the robot]
 #glossary.add-term("GUI")[Graphical User Interface - A way to diplay information on the robot brain in a clean and presentable manner]
 #glossary.add-term("PID")[Proportional, Integral, Derivitive - A type of control loop that takes in error and returns new motor value]
-#glossary.add-term("PTO")[Honostly I dont know what it stands for, i just know its used to switch which gear a motor is powering with pneumatics]
+#glossary.add-term("PTO")[Honostly we dont know what it stands for, we just know its used to switch which gear a motor is powering with pneumatics]
 
 #create-appendix-entry(title: "Glossary")[
   #components.glossary()
