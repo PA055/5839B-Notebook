@@ -395,7 +395,7 @@
 #glossary.add-term("pose")[a structure containing the x, y, and heading of the robot]
 #glossary.add-term("GUI")[Graphical User Interface - A way to diplay information on the robot brain in a clean and presentable manner]
 #glossary.add-term("PID")[Proportional, Integral, Derivitive - A type of control loop that takes in error and returns new motor value]
-#glossary.add-term("PTO")[Honostly we dont know what it stands for, we just know its used to switch which gear a motor is powering with pneumatics]
+#glossary.add-term("PTO")[Honestly we dont know what it stands for, we just know its used to switch which gear a motor is powering with pneumatics]
 
 #create-appendix-entry(title: "Glossary")[
   #components.glossary()
