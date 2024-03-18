@@ -23,4 +23,6 @@
   "decision": (icon: icons.target, color: blue, title: "Final Decision"),
   "build": (icon: icons.hammer, color: red, title: "Build Complete"),
   "goal": (icon: icons.target, color: navy, title: "Goal"),
+  "implimintation": (icon: icons.terminal, color: blue, title: "Implimintation"),
+  "tldr": (icon: icons.light-bulb, color: blue.lighten(50%), title: "tldr;"),
 )

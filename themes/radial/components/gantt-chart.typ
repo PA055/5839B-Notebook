@@ -82,12 +82,12 @@
           month-len += 1
           last-month = next.month() 
         } else {
-          months-array.push(group(((datetime(year: next.year(), month: last-month, day: 1)).display("[month repr:long]"),month-len)))
+          months-array.push(group(((datetime(year: next.year(), month: last-month, day: 1)).display("[month repr:short]"),month-len)))
           month-len = 1
           last-month = next.month() 
         }
       }
-      months-array.push(group(((datetime(year: next.year(), month: last-month, day: 1)).display("[month repr:long]"),month-len)))
+      months-array.push(group(((datetime(year: next.year(), month: last-month, day: 1)).display("[month repr:short]"),month-len)))
 
       headerline(..months-array)
       headerline(..dates-array)
