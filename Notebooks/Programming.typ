@@ -353,11 +353,21 @@
     if $max(V_(F L), V_(F R), V_(B L), V_(B R)) > V_"max"$ we need to multiply all wheel velocities by $V_"max" / V_"biggest"$ where $V_"biggest" = max(V_(F L), V_(F R), V_(B L), V_(B R))$    
   ]
 
-  We first impliminted this in python VexCode so we can test if the equations work, the results can be seen at #link("https://https://github.com/PA055/5839B-Notebook/")
+  We first impliminted this in python VexCode so we can test if the equations work, the results can be seen at #link("https://youtu.be/eSuvUhxxs34")
 
   After the sucessful results of the VexCode prototype, we then started working on the implimentation in the library, the OkapiLib code syle guide mandates that we build off of the ChassisModel base class, we did this and used many of the same functions as the X-drive class as the drivetrains are almost the same, just some small differences in the kinematic equations.
 
   The next step was to work on finding the travel distance for each wheel, this was not implimented in the X-drive class from OkapiLib so we decided to delay the development until after the Kalman Filtering. 
+]
+
+#create-body-entry(
+  title: "Pure Pursuit",
+  type: "program", 
+  date: datetime(year: 2024, month: 3, day: 12),
+  author: "Praful Adiga",
+  witness: "Brandon Lewis"
+)[
+  
 ]
 
 #create-appendix-entry(title: "Appendix A: Odometry Derivation")[
