@@ -32,3 +32,11 @@
 )[
   
 ]
+#create-body-entry(
+  title: "Taking Inventory",
+  type: "management",
+  date: datetime(year: 2024, month: 3, day: 5),
+)[
+  something
+  i love big monkeys
+]
