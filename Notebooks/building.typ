@@ -147,10 +147,10 @@
     ("Solid Works",   2, 4, 3, 2, 3, 3),
     ("Onshape",   1, 5, 4, 3, 4, 4),
   )
-#components.admonition(type: "note")[
-    Inventor Score far higher in some categories compared to other teams due to Eastern Tech's Engineering Program. This program which the majority of the team is in teaches Inventor and provides us with a browser version of it. This ngeates Onshapes main advantage and gives us 3 teachers who can help fix any problems we run into. 
+  #components.admonition(type: "note")[
+    Inventor scored far higher in some categories compared to other teams due to Eastern Tech's Engineering Program. This program which the majority of the team is in teaches Inventor and provides us with a browser version of it. This ngeates Onshapes main advantage and gives us 3 teachers who can help fix any problems we run into. 
   ]
-#components.admonition(type: "decision")[
+  #components.admonition(type: "decision")[
     Due to a variety of reasons the main one being a lack of time to learn a new software and familiarty with Inventor it will continue to be our primary design software. 
   ]
 
@@ -484,7 +484,7 @@
   author: "Davis Bodami",
   witness: "Praful Adiga"
 )[ 
-  While Building the Mecanum Drive a large oversight was made. Vex wheels may be advertised in standard sizes like 4in but that is seldom the case. For the wheels various forum posts and the perdu vex sig robotic website placed both the older 4 in omni wheels and 4in mecanum wheels as having a 4.125in diameter. However once we built the drive we found the omni wheel to be slightly bigger. Going into inventor confirmed these as the Mecanum wheels measured .0625in smallers then the omni Wheels. 
+  While Building the Mecanum Drive a large oversight was made. Vex wheels may be advertised in standard sizes like 4in but that is seldom the case. For the wheels various forum posts and the Perdu Vex Sig Robotics website placed both the older 4 in omni wheels and 4in mecanum wheels as having a 4.125in diameter. However once we built the drive we found the omni wheel to be slightly bigger. Going into inventor confirmed these as the Mecanum wheels measured .0625in smallers then the omni Wheels. 
 
   #figure(
     rect(fill: black.lighten(10%))[
@@ -492,9 +492,12 @@
     ],
     caption: [ Comparison of Mecanum Wheels and both the new (right) and old (left) omni wheel diameters
     ]
-  ) <odomDiagram>
+  ) 
 
   This means that for now until we can get the newer omni Wheels whish should be compatible with the mecanum wheels them alogn with the pto attached to them will be left out of the build. The older Wheels can not be used as they cause only one of the mecanum wheels to be in contact with the groudn which defeats the purpose of the drive. 
-]
 
+  Additionally weight plates needed to be screwed into the front to ensure the drive was balanced allowing it to properly strafe.
+
+  Overall the Drive was a success after a few minor tweeks and will serve as a good test base until the season starts. 
+]
 
