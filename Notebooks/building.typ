@@ -23,7 +23,7 @@
 
   For the building of our previous robot even though it unfortunately did not make worlds there were a lot of aspects executed properly and poorly to be identified. This is important as it allows the team to know what works and to keep doing as well as what to change in order to improve for the next season.
 
-  *Drive Train* The Drive Train is the base of any robot. The previous seasons drive train used 6 11w motors with the blue cartidge and a 48:60 gear ratio giving an RPM of 480. This spun 3 omni wheels with the middle one on each side being locked. 
+  *Drive Train* The Drive Train is the base of any robot. The previous seasons drive train used 6 11w motors with the blue cartidge and a 48:60 gear ratio giving an RPM of 480. This spun 3 4" omni wheels with the middle one on each side being locked. 
   #components.pro-con(
     pros:  [
         - Speed
@@ -40,7 +40,7 @@
       ]
   ) 
 
-  *Intake* The intake was powered by 1 5.5w motor spining a series of 2in 45A flexwheels to interact with the game objects. The intake was also allowed to float so that it could raise over the goal to score the triball. 
+  *Intake* The intake was powered by 1 5.5w motor spining a series of 2" 45A flexwheels to interact with the game objects. The intake was also allowed to float so that it could raise over the goal to score the triball. 
   #components.pro-con(
     pros:  [
         - Holding ability
@@ -69,7 +69,7 @@
       ]
   ) 
   
-  *Flywheel Arm* this was a 4in Flexwheel with a ratchet spining at 3600 RPM off of a blue motor. Game obejcts were placed and laumched off of the flywheel. It could also be raised by a 5.5w motor assisted by rubber bands to shoot over other robots. 
+  *Flywheel Arm* this was a 4" Flexwheel with a ratchet spining at 3600 RPM off of a blue motor. Game obejcts were placed and laumched off of the flywheel. It could also be raised by a 5.5w motor assisted by rubber bands to shoot over other robots. 
   #components.pro-con(
     pros:  [
         - Consistent firing
@@ -85,7 +85,7 @@
       ]
   ) 
   
-  *Odometry Modules* These are 3 modules 2 vertical and 1 horizantal that are used to track the robots position. They are jointed to always be in contact with the ground, and have a 3.25 in omni wheel spin an encoder to track movements. 
+  *Odometry Modules* These are 3 modules 2 vertical and 1 horizantal that are used to track the robots position. They are jointed to always be in contact with the ground, and have a 3.25" omni wheel spin an encoder to track movements. 
   #components.pro-con(
     pros:  [
         - Simple Design
@@ -129,15 +129,32 @@
   author: "Davis Bodami",
   witness: "Praful Adiga"
 )[
-  Before any models for possible drive trains or new odometry sensors can be made a decision on what software to use is necessary. In the previous season we adpoted Autodesk inventor. There were a variety of reasons for this the primary one being familiarity. At Eastern Technical Highschool their is an Engineerign Magnet program which teaches Autodesk inventor. This not only means over half the team who is in this program know the software, but also there is 3 teachers who can assist us with any issues. Also with Inventor being used by the school the county provides a VDI or Virtual Desktop Interface where you can log in remotley to a desktop with Inventor. This allows the team who does not all have access to a high qaulity laptop to access the model on the shcool issued chromebooks. Due to these reasons we find it impractical to switch design softwares. Not only would we have to remake some of our premade assemblies such as for flex wheels, but we woudl have to spend time learnign new software which outweighs any of the other softwares advantages. 
+  Before any models for possible drive trains or new odometry sensors can be made a decision on what software to use is necessary. In the previous season we adpoted Autodesk inventor. There exists 3 main options other then inventor for vex which include Solid Works, Fusion 360, and Onshape. Each has a variety of favorable aspects to be considered when choosing. 
 
-  #figure(
-    rect(fill: black.lighten(10%))[
-      #image("img\Inventor Logo.png", width: 80%)
-    ],
-    
-    
-  ) <odomDiagram>
+  The best way to comapre these is through a decision matrix of various aspects of each
+
+  #components.decision-matrix(
+    properties: (
+      (name: "Familiarty", weight: 30),
+      (name: "Acessability", weight: 20),
+      (name: "Availble Part Libraries", weight: 5),
+      (name: "Availble Help Recoruces", weight: 5),
+      (name: "Vex Compata- bility", weight: 2),
+      (name: "Ease of Use", weight: 2),
+    ), 
+    ("Inventor",     5, 5, 4, 5, 4, 3),
+    ("Fusion 360", 3, 3, 5, 3, 5, 4),
+    ("Solid Works",   2, 4, 3, 2, 3, 3),
+    ("Onshape",   1, 5, 4, 3, 4, 4),
+  )
+#components.admonition(type: "note")[
+    Inventor Score far higher in some categories compared to other teams due to Eastern Tech's Engineering Program. This program which the majority of the team is in teaches Inventor and provides us with a browser version of it. This ngeates Onshapes main advantage and gives us 3 teachers who can help fix any problems we run into. 
+  ]
+#components.admonition(type: "decision")[
+    Due to a variety of reasons the main one being a lack of time to learn a new software and familiarty with Inventor it will continue to be our primary design software. 
+  ]
+
+
 ]
 #create-body-entry(
   title: "File Strcuture/Model Management",
@@ -152,15 +169,15 @@
 
   - Robots are marked with a folder labeled "! Robot Name"
 
-  -Within in that folder is the main assembly of the same name
+  - Within in that folder is the main assembly of the same name
 
-  -Assemblies or cut parts used throughout the model are stored in this high level folder
+  - Assemblies or cut parts used throughout the model are stored in this high level folder
 
-  -There are also folders with each of the sub-assemblies labeled "Assembly Name"
+  - There are also folders with each of the sub-assemblies labeled "Assembly Name"
 
-  -Within the sub-assembly folders are all the special cut parts and sub-assemblies of that Assembly. 
+  - Within the sub-assembly folders are all the special cut parts and sub-assemblies of that Assembly. 
 
-  -All other parts are stored in a default parts folder with every vex part organized by type 
+  - All other parts are stored in a default parts folder with every vex part organized by type 
 
   This system comes with a variety of advantages for the team. Indivudal axels or mechanisms be edited without opening the whole robot which allows team members to interact with the models without a powerful computer. It also allows for big changes to be made easier as the major sub-assemblies can be removed or changed without having to edit a bunch of indivudal parts. This also helps during the build process as we can divide the many sub-assemblies between any teammembers without other work to do. This has proven in the past to allow us to build full redesigns in just a week and half such as what we did after dulaney last year. 
   #figure(
@@ -264,7 +281,7 @@
       - Limited Mobility 
       - Wheel incompatabilities
       ]
-  ) -> Tank Drives
+  ) 
   = H/X Drives
 
   These use either 4 or 5 omni wheels to achieve a robot that has the same range of motion as a Tank Drive, but with the additon of diagnol and horizantal movements. They either use in the case of an X drive 4 indivudally powered omni wheels in each corner at 90 degress from one another or 4 indivudallty powered onmi wheels in a traditional tank drive setup with one horizantal omni wheel for the H drive. These drives can however, prove dificult to control and in the case of the H drive impractical as the horizantal wheel rarley makes contact. They are also very easy to push around since all the wheels are omni. X drives can prove highly practical given the right game and design but in games such as over under the middle bar limits their use. 
@@ -281,7 +298,7 @@
       - Practicality
       - Low Traction/Easy to push
       ]
-  ) -> X/H Drives
+  ) 
   = Mecanum Drives
 
   Mecanum drives are likley the most special as they use specialized mecanum wheels. These like omni wheels have roller attached, but at an angle to provide unqiuley augmented movment. When set up correctly 4 indvidually powered mechnum wheels can provide the same movment as a X drive. However, since to go in any direction it directly turns the mecanum wheels they are harder to push as the motors resist the pushing directly. This along with other issues can also lead to faster overheating with mecanum drives. The vex edr 4in mecanum wheels are very bulky putting more strain on the motor additonally, the vex mecanum wheels unlike msot desings have limited contact with the ground due to the iregular design of their rollers. It is also important to note it easier to gear and build a frame for a mecnum drive over and X drive as it does not require the 45 degree angels to achieve its unique motion. Though also possible with an X drive an additional powered omni wheel could be put into the middle to provide more drive power. Since this wheel isnt needed at all times if a succesful PTO can be developed it could allow for a very versatile robot and drive. 
@@ -297,7 +314,7 @@
       - Practicality
       - Requires balanced weight 
       ]
-  ) -> Mecanum Drives
+  ) 
 
 
 
@@ -316,7 +333,7 @@
       - Motor Usage 
       - Practicality
       ]
-  ) -> Swerve Drives
+  ) 
 
 ]
 #create-body-entry(
