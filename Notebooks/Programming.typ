@@ -358,6 +358,7 @@
   After the sucessful results of the VexCode prototype, we then started working on the implimentation in the library, the OkapiLib code syle guide mandates that we build off of the ChassisModel base class, we did this and used many of the same functions as the X-drive class as the drivetrains are almost the same, just some small differences in the kinematic equations.
 
   The next step was to work on finding the travel distance for each wheel, this could be done by normalizing the vector for linear movement and and then multiplying by the distance to travel, finally the turn angle needs to be added on top of that using the same equations as a tank drivetrain, and finally we need to cap the values and scale them so give the desired velocities.
+]
 
 #create-body-entry(
   title: "Pure Pursuit",
@@ -447,8 +448,97 @@
   }
   ```
   
-  we can then use the functions created previously to go towards the goal point and update it as we do so, finishing the pure pursit algorithm
+  we can then use PID loops to go towards the goal point and update it as we do so, finishing the pure pursit algorithm
 ]
+
+#create-body-entry(
+  title: "GUI",
+  type: "program", 
+  date: datetime(year: 2024, month: 3, day: 14),
+  author: "Praful Adiga",
+  witness: "Brandon Lewis"
+)[
+  == 3/14 progress
+
+  Currently we have 3 screens for the GUI:
+   - Autonomous Selector
+   - PID Tuner
+   - Odometry Debug Screen
+
+  And using Squareline Studio, i have designed a screen for all of them, however this is likly to change as the designs aren't as asthetically pleasing as i would like them to be. 
+
+  _*Insert Images Here*_
+
+  == 3/18 progress
+  I have finished one of the three screens and got a working and interactive display on the brain, I started with the Auton Selector as I belived that that was the most important, as it will be used in every match, while the other 2 are just convinient for tuning
+
+  Some errors i encountered were:
+   - Memory Excptions - this occured when i tried to edit the properties of an lvgl object that was still uninitialized
+   - Memory Overflow - this occured when i attemped to load too many objects on the screen at a single time, which occured because of a bug that prevented the objects from getting deleted when the competition mode was switched
+   - Logic Errors - This was the worst type of error to debug, as i didn't know lvgl that well and so i had to create a blank screen to isolate the problem and try and fix it, often the error was when things aren't showing up, they are probbably being hidden under another object
+   - Problems with Static/Class functions - this was when i was working with callbacks, i had to create a static callback functions which meant that variables that belonged to the class couldn't be accessed, which caused me to consider scrapping the GUI
+  
+  #figure(
+    rect(fill: black.lighten(10%))[
+      #image("img\AutonSelector1.png", width: 80%)
+    ],
+    caption: [The Autonomous Selector Screen]
+  )
+
+  == 3/26 progress
+    This time i worked on the Odom Debug Screen, which i felt was the easier of the 2, I managed to finish this class completly with the visuals and functionality cleanly incorperated into the class
+
+    I did run into some of the same problems as the Autonomous Selector, however they were much rarer and easier to resolve, so i at least learned something
+
+    The class included a funtion to display the debug screen and map along with a function to update the odometry values
+
+    #figure(
+    rect(fill: black.lighten(10%))[
+      #image("img\OdomDebug2.png", width: 80%)
+    ],
+    caption: [The Odometry Debug Screen]
+  )
+
+  == 4/2 progress
+  The final screen so far was the PID tuner, this needed to have a complex class and i was unsure how i could accomplish this using objct oriented programming when lvgl is effectivly fighting me on this. 
+
+  Some of the problems i faced were how to switch between different PID loops, as i couldn't just store them in a list as the function couldn't access the list which is stored in the class. Another problem was how to update the values, not just in the program, but in the actual PID class, again the main problem was accessing the class to get the different PID loops. Another problem was retreving the PID error information, which again was a problem releated to accessing the class.
+
+  I couldn't find any solution to this that both worked and was memory safe, I couldn't just put a pointer to the class in an arbitrary location and access it within the function, as that can cause more errors than it would solve. So i put off the functionality and just created the visuals with a temporary list of PID loops.
+
+  #figure(
+    rect(fill: black.lighten(10%))[
+      #image("img\PIDTuner1.png", width: 80%)
+    ],
+    caption: [The PID Tuner Screen]
+  ) 
+]
+
+#create-body-entry(
+  title: "Behind Schedule",
+  type: "management", 
+  date: datetime(year: 2024, month: 5, day: 3),
+  author: "Praful Adiga",
+  witness: "Brandon Lewis"
+)[
+    Development on the robot has been mostly paused for the past month because the programmers were predisposed with family matters and schoolwork, It is likely to be paused for another 2 weeks as AP testing is upcomming. This is a huge setback to the library as most of the features are untested or nonexistant.
+
+    The proposed solution is to scrap unnessisary features and use a prexisting library like LemLib or EZ Template, to make up for the lack of features.
+
+    We have decided to keep the folowing features:
+    - Autonomous Selector
+    - PID Tuner
+    - Odometry Debug Screen
+    - Any other GUI we deem nessasary
+    - Interface Classes (this is to make EZ and Lemlib work well together)
+    - Path Injector
+    - SD card Logger
+
+    A combination of those features combined with EZ Template, Lemlib and OkapiLib, will lead to a efficient autonomous.
+
+    However changing to this new combination requires a different pros kernel (3.8.3) which is incompatible with the existing GUI and other code, So converting and imporving the existing GUI classes are the first priority before getting the libraries to cooperate, as that also needs a functional robot
+]
+
 
 #create-appendix-entry(title: "Appendix A: Odometry Derivation")[
   #rect(fill: black.lighten(10%))[
