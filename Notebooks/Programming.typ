@@ -357,17 +357,97 @@
 
   After the sucessful results of the VexCode prototype, we then started working on the implimentation in the library, the OkapiLib code syle guide mandates that we build off of the ChassisModel base class, we did this and used many of the same functions as the X-drive class as the drivetrains are almost the same, just some small differences in the kinematic equations.
 
-  The next step was to work on finding the travel distance for each wheel, this was not implimented in the X-drive class from OkapiLib so we decided to delay the development until after the Kalman Filtering. 
-]
+  The next step was to work on finding the travel distance for each wheel, this could be done by normalizing the vector for linear movement and and then multiplying by the distance to travel, finally the turn angle needs to be added on top of that using the same equations as a tank drivetrain, and finally we need to cap the values and scale them so give the desired velocities.
 
 #create-body-entry(
   title: "Pure Pursuit",
   type: "program", 
-  date: datetime(year: 2024, month: 3, day: 12),
+  date: datetime(year: 2024, month: 3, day: 14),
   author: "Praful Adiga",
   witness: "Brandon Lewis"
 )[
+  Pure Pursuit is, in our opinion, the most useful algorithm that is used in the vex autonomous period. Pure Pursuit is, in essence, a algorithm to make the robot smoothly follow a predetermined path. 
+
+  To learn the algorithm, i used Purdue Sigbots's #link("https://wiki.purduesigbots.com/software/control-algorithms/basic-pure-pursuit")[Resource] as a base and added on the features I wanted. Their website used a donkey chasing a carrot, which always stays in front of the donkey, as a helpful metaphor on how the algorithm actually worked
+
+  #figure(
+    rect(fill: black.lighten(10%))[
+      #image("img\purePursuitMetaphor.gif", width: 80%)
+    ],
+    caption: [An image showing the metaphor used by the Purdue Sigbots Website on the Pure Pursuit Algorithm]
+  )
+
+  So speaking more technically, the algorithm is given a set of points on a path, these points are linearly interpolated between so the point density has to be high for the path to be accurate, the algorithm is also given the robot's position and a lookahead distance, the distance the robot should look ahead to find the point it's heading towards.
   
+  We first need to find the point the robot is heading towards, we'll call this the goal point. The goal point needs to meet certain criteria,  
+   - it needs to be on the path
+   - it cannot be further away from the robot than the lookahead distance
+   - it needs to be ahead of the nearest point to the robot on the path
+   - it needs to be the furthest point on the path that satisfies the conditions above
+  The criteria above do simplify the algorithm, however it creates some limitations:
+   - the path cannot cross over itself, as the algorithm would skip part of the path
+   - the lookahead distance needs to be tuned properly, high lookahead distance leads to path smoothness, but low leads to accuracy
+
+  To find the goal point we draw a line between each point on the path, we then draw a circle, centered on the robot with a radius equal to the lookahead distance, and list any intersections, we then find the furthest point on the path and check if it is ahead of the robot, if the robot is ahead of the furthest point, we know the path is ending so we set the lookahead point to the final point in the path, otherwise it is the furthest point on the path. We can use the following code to find the goal point.
+
+  .
+
+  ```cpp
+  struct Point {
+      float x;
+      float y;
+  };
+
+  path = [/* The path can be read from a file and formatted as an array of Points */]
+  int get_closest_point(Point points[], Point to) {
+      float smallestDist = 999999999999999999999999999999;
+      int smallestIndex = -1;
+      
+      for (int i = 0; i < points.length; i++) {
+          if (dst_btw_pts(points[i], to) < smallest) {
+              smallestIndex = i;
+              smallestDist = dst_btw_pts(points[i], to)
+          }
+      }
+
+      return smallestIndex;
+  }
+
+  int get_discriminant(Point pt1, Point pt2, Point robotPos, float lookaheadDistance) {
+      float x1 = pt1.x - robotPos.x;
+      float y1 = pt1.y - robotPos.y;
+      float x2 = pt2.x - robotPos.x;
+      float y2 = pt2.y - robotPos.y;
+      float dx = x2 - x1;
+      float dy = y2 - y1;
+      dr = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
+      D = x1 * y2 - x2 * y1;
+      discriminant = std::pow(lookaheadDistance, 2) * std::pow(dr, 2)  - std::pow(D, 2);
+      return discriminant;
+  }
+
+  Point find_goal_point(Point[] path, Point robotPos, float lookaheadDistance, int lastFoundPoint) {
+      goalPt = Point(0, 0);
+      std::vector<int> points = new std::vector<int>();
+
+      for (int i = 0; i < path.length; i++) {
+          discriminant = get_discriminant(path[i], path[i+1], robotPos, lookaheadDistance);
+          if (discriminant >= 0) // we have an intersection
+              points.add(i);
+      }
+
+      if (points.count() <= 0) // no intersected point, we have wandered from the path
+          goalPt = path[lastFoundPoint];
+      else if (get_closest_point(path, robotPos) > std::max(points)) // robot is farther than all intersected points, use last point in path
+          goalPt = path[path.length];
+      else
+          goalPt = path[std::max(points)];
+
+      return goalPt
+  }
+  ```
+  
+  we can then use the functions created previously to go towards the goal point and update it as we do so, finishing the pure pursit algorithm
 ]
 
 #create-appendix-entry(title: "Appendix A: Odometry Derivation")[
@@ -402,10 +482,10 @@
 
 
 #glossary.add-term("deliminator")[A character or set of characters that seperate parts of a string]
-#glossary.add-term("pose")[a structure containing the x, y, and heading of the robot]
+#glossary.add-term("pose")[A structure containing the x, y, and heading of the robot]
 #glossary.add-term("GUI")[Graphical User Interface - A way to diplay information on the robot brain in a clean and presentable manner]
 #glossary.add-term("PID")[Proportional, Integral, Derivitive - A type of control loop that takes in error and returns new motor value]
-#glossary.add-term("PTO")[Honestly we dont know what it stands for, we just know its used to switch which gear a motor is powering with pneumatics]
+#glossary.add-term("PTO")[Power Take Off - A mechanism where a single motor can switch between powering 2 different mechanism using pneumatics]
 
 #create-appendix-entry(title: "Glossary")[
   #components.glossary()
