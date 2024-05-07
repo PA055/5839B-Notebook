@@ -1,7 +1,6 @@
-#import "notebookinator/lib.typ": *
-#import themes.radial: radial-theme, components, colors
-#import components: *
-#import colors: *
+#import "/packages.typ": notebookinator
+#import notebookinator: *
+#import themes.radial: radial-theme, components
 
 #show: notebook.with(theme: radial-theme, cover: align(center + horizon)[
   #text(size: 24pt, font: "Tele-Marines")[
@@ -14,11 +13,12 @@
     2024 - 2025
     #line(length: 50%, stroke: (thickness: 2.5pt, cap: "round"))
     High Stakes
-
   ]
 ])
+
+
 #include "/frontmatter.typ"
 
-#include "entries/entries.typ"
+#include "./Entries/entries.typ"
 
 #include "./appendix.typ"

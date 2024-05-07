@@ -1,7 +1,7 @@
-#import "notebookinator/lib.typ": *
-#import themes.radial: radial-theme, components, colors
-#import components: *
-#import colors: *
+#import "./packages.typ": notebookinator
+#import notebookinator: *
+#import themes.radial.components
+#import "./utils.typ": get-page-number
 
 #import "./glossary.typ"
 
