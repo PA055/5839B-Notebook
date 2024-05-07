@@ -1,4 +1,4 @@
-#import "/lib.typ": *
+#import "../notebookinator/lib.typ": *
 #import themes.radial: radial-theme, components, colors
 #import colors: *
 

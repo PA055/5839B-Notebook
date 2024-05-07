@@ -1,7 +1,7 @@
 #import "./colors.typ": *
 #import "./icons/icons.typ"
 #import "./components/title.typ" as components
-#import "/utils.typ"
+#import "../../utils.typ"
 #import "./metadata.typ": entry-type-metadata
 
 // TODO: make an actual cover

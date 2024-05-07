@@ -1,4 +1,4 @@
-#import "/globals.typ"
+#import "./globals.typ"
 #import "./utils.typ"
 #import "./themes/themes.typ"
 

@@ -1,4 +1,4 @@
-#import "/utils.typ"
+#import "../../../utils.typ"
 
 /// Print out the glossary
 ///

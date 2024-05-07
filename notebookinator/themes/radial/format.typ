@@ -1,4 +1,4 @@
-#import "/packages.typ": tablex
+#import "../../packages.typ": tablex
 #import tablex: *
 #import "./colors.typ": *
 

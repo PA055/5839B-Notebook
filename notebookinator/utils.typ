@@ -1,4 +1,4 @@
-#import "/globals.typ"
+#import "./globals.typ"
 
 // TODO: document what ctx provides to the callback
 /// Utility function to help themes implement a table of contents.

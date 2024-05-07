@@ -1,6 +1,6 @@
 #import "../colors.typ": *
 #import "../metadata.typ": *
-#import "/utils.typ"
+#import "../../../utils.typ"
 
 /// A label that corresponds with one of the entry types.
 ///

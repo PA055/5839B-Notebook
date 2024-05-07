@@ -1,7 +1,7 @@
 #import "../colors.typ": *
-#import "/utils.typ"
+#import "../../../utils.typ"
 
-#import "/packages.typ": tablex
+#import "../../../packages.typ": tablex
 #import tablex: *
 
 /// A decision matrix table.

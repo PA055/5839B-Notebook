@@ -1,6 +1,6 @@
-#import "/packages.typ": tablex
+#import "../../packages.typ": tablex
 #import tablex: tablex, cellx
-#import "/utils.typ"
+#import "../../utils.typ"
 
 /// Print out the table of contents
 ///

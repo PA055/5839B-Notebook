@@ -1,4 +1,4 @@
-#import "/utils.typ"
+#import "../../../utils.typ"
 #import "../metadata.typ": *
 #import "./label.typ": *
 
