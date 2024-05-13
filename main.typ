@@ -8,7 +8,7 @@
       Engineering Notebook
     ]
 
-    // #image("./assets/53E-logo-jank.png", height: 70%) // Copyed and pasted, fix this logo
+    #image("./assets/logo.jpg", height: 70%)
 
     2024 - 2025
     #line(length: 50%, stroke: (thickness: 2.5pt, cap: "round"))
