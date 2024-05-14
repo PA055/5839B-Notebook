@@ -7,3 +7,4 @@
 #include "./taking-inventory.typ"
 #include "./inventory-results.typ"
 #include "./drive-train-types.typ"
+#include "./new-odometry-sensors.typ"
