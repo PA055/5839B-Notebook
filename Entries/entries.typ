@@ -8,3 +8,4 @@
 #include "./inventory-results.typ"
 #include "./drive-train-types.typ"
 #include "./new-odometry-sensors.typ"
+#include "./drive-train-prototypes.typ"
