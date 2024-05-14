@@ -11,7 +11,15 @@
 )[
   #components.toc()
 ]
-
+#create-body-entry(
+  title: "Introduction",
+  type: "test",
+  date: datetime(year: 2024, month: 3, day: 9),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[
+ 
+]
 #create-body-entry(
   title: "First Steps",
   type: "decide",
@@ -238,6 +246,8 @@
   witness: "Praful Adiga"
 )[
   After a week of work we were able to complete all rows of the spread sheet and figure out what parts the team was in need of. A variety of methods were used to measure the various parts. Large parts like Wheels and Motors were counted but other parts required a different aporach. String wires, and tubing were measured in feet, and metal strcuture by its weight. For parts like screws and nuts a single unit was weighed as well as the container and the total amount we had. The weight of the container was then subtracted from the total and then divided by the unit to find the total quanity. 
+
+  Overall we found that we had a good quanitity of most parts that we had however there were many parts absent from our collection. Based on the next game new parts can be ordered based on that game. 
   
   #components.admonition(type: "note")[
     We found our time managment to be extremely poor during this endevor which greatly increased its length. To adress this we may work to change how the team meets to allow for not only more time, but better uses of that time. 
@@ -499,6 +509,143 @@
   Additionally weight plates needed to be screwed into the front to ensure the drive was balanced allowing it to properly strafe.
 
   Overall the Drive was a success after a few minor tweeks and will serve as a good test base until the season starts. 
+]
+#create-body-entry(
+  title: "Rest of Pre-Season",
+  type: "test",
+  date: datetime(year: 2024, month: 3, day: 25),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[Since the most important job of ivnentorying was completed most of the team agreed to slow down until the next game was revealed to study for upcoming MCAP/AP/Final Exams and other School work. 
+
+However, when we had the time to stop in at Robotics we worked to take apart the previous game's field as well as fix up the field border. This was done since the field border had been heavily weakened from many rams during our autonmous practices in the previous season. 
+]
+#create-body-entry(
+  title: "Fund Raising",
+  type: "test",
+  date: datetime(year: 2024, month: 4, day: 12),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[During a group meeting today we disccused a variety of methods of fundraising. All ideas were taken and put on the right of the board (even jokes) and the possibly viable ideas were written on the right. A fund raiser would serve as a way to allow us access to the field earlier in the season so that we can get more practice. Durign the previous year the team worked off of a 3d printed tri-ball and a make-shift field made of old parts until around novemeber. To avoid this a fundraiser that gets atleast even around six hundred dollars would give us the field multiple months before the county may decide to buy it for us. 
+
+Out of the many options we looked at we decided to try our hand at a simpel gofund me and send it to our families as it woudl be a very low amount of imput while having a psosbilility of a large output. We promised any doantors they would get a resin printed Eastern tech key-chain to encourage more doantions. All teammembers sent out the link to freinds and family to raise donations. 
+
+
+  
+]
+#create-body-entry(
+  title: "First Impressions of High Stakes",
+  type: "test",
+  date: datetime(year: 2024, month: 4, day: 27),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[ After watching the conlcusion of worlds 3 of us Davis, Praful, and Andrews began to theorize ideas and startegies for the new game. This ideas were created before the release of the rule book and new ideas will be documented upon its release. 
+
+Initially the similarity to the previous games of Round Up and Tipping point provide a wide variety of stratgies to draw from such as:
+  - pneuamtically grabbing a mobile goal (MOGO)
+  - Using an intake to place rings on a held MOGO
+
+In addition some unique ideas were disscused such as
+  - Using a D4Rb or similar lift to raise and lower the itnake to deposit at the variable elevations where the stakes reside
+  - Having a pneumatic grip on the intake to grab the top bar and pull the robot off
+  - Creating a descoring device to remove rigns from a goal
+  - Having a atleast 4 ot possibly 6 motor drive to have enoguh power to hold the corners when needed
+
+Multiple Ideas relatign to strategy were also discussed
+  - Climbing is far more valuble compared to previous games due to reduced poitn values of the rings comapred to previous objects
+  - Securing the corners is critical as they could flip a game in an instant
+  - Havign a way to only put your rings or the enemies rigns onto a goal quickly could prove valueable
+  - One could make a MOGO with only enemy rigns just for it to be put in the descore corner
+  - The top ring seems pointless if it is only worth three points as going for it would require percision and a good amoutn of time that could be better used else where. 
+
+To have some ideas for decoratign the robot and field were also discussed
+  - One could draw the popular video game character kirby or a face in general on one of the rings
+  - The top rings is the One ring to rule them all allowing for multiple lord of the rings refrences such as callign the robot the eye of sauron 
+
+Overall we see this game as being far more complex then previous games requiring more advanced mechnisms and higher level of quality for a robot to be competetive. We shall begin protoyping some models in Inventor the following day and adjsut when the ruels are released. We are also intrested to see if there will be any big diffrences in skils comapred to the base game. 
+ 
+]
+#create-body-entry(
+  title: "Inventor Prototypes-Pre Rulebook",
+  type: "test",
+  date: datetime(year: 2024, month: 4, day: 28),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[ 
+To start an intake with a lift were modeled along with a starting ideas for the drive. This was done so that we had a good starting palce to begin building when we met again later that week. In addition the drivetrain allows us to start making considerations for motor ditribution and the sizing of our manipulators
+
+The intake is designed to use a chain belt with standoff screwed in that will hook onto the center of the rigns and pull them up as well as the lift to drop them off at vawrious heights of stakes
+
+
+The drive train includes a variety of features some of which had been worked on during the preseason 
+  - 6 motor drive with a pto to transfer two of the motors to a lift
+  - 4 3.25 wheels omni wheels for tractions and maneuverability 
+  - Vertical motor mount to save space
+  - Hs axels used to secure the two halves of the drive
+  - Pneumatic with lexan washers used to shift the gears in the pto
+  - Odometry sensors to allow for an imrpoved and more accruate autonmous routine
+Overall this is jsut a quick model put together and will be further explored as the season cointinues and we begin to construct the robot.
+ 
+]
+#create-body-entry(
+  title: "Rules Reaction",
+  type: "test",
+  date: datetime(year: 2024, month: 4, day: 30),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[ 
+To the entire teams surprise the rulebook completely changes how the game is played compared to our inital thoughts from the video. Davis, Brandon, and Praful dicussed these on discord the night it was released. 
+
+New rules
+  - The vertical expansion limit makes the previous lfit models too tall, but not out of the picture as elevatign thei tnake could still help with climbing and depoisting rings
+  - It is require to go rung by rung to climb greatly icnreasing the challenge in doing so, but the point values still make it worthwhile
+  - The expansion limits do make the high stake worth far less as to score it would require climing to the top rung and then havign a mechnism to score it for only 3 more points. 
+Skills
+  - The rules reagarding the diffrent rings makes it valuable for the robot to be able to sort out colors in it's intake to ensure no rings are waisted
+  - The corners are still valuable for the 5 points per MOGO, but not as crucial for the game. 
+  - Descore mechanisms could help remove the pre-scored blue rings for more points
+
+Final thoughts for the first Robot
+- 6 motor drive
+- intake on a lift
+- pneuamtic clamp to grab MOGOs
+- Clamp on intkae/lift to grab the first rung
+- Passive clamps to hold onto the climbing rungs so that the lift can raise and grab the next rung
+- Descore mech to help in skills and matches
+
+
+
+
+]
+#create-body-entry(
+  title: "Initial Goals and Plan",
+  type: "test",
+  date: datetime(year: 2024, month: 5, day: 1),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[ 
+ 
+]
+#create-body-entry(
+  title: "Fund Raising Results",
+  type: "test",
+  date: datetime(year: 2024, month: 5, day: 1),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[
+  The fundraiser is still ongoing, however 765 dollars was raised which is able to cover the field costs as well as shipping as tax whcih allowed us to puchase the field today. This should allow us to get started far sooner then in previous years and allow for the testing of more protypes before the first comeptions. 
+ 
+]
+#create-body-entry(
+  title: "First Intake Builds",
+  type: "test",
+  date: datetime(year: 2024, month: 5, day: 2),
+  author: "Davis Bodami",
+  witness: "Praful Adiga"
+)[
+We started by building the basic Intake modeled in Inventor and worked to create various imrpvoements as we went based on the problems we ran into. (It is to be noted these tested were with a 3d printed ring so the weight problems incurred may not be accurate)
+
+Intial tests using a standoff intake similar to those in Tipping point saw the chain flex and drop the rigns as they were too heavy. To adjust for this flexwheels were tried and foudn to work very well. However, as we incraesed the inclien of the intake the flexwheels became worse at picking the rings from the ground, but not carrying them up ocne the intake secrued them. To alieviate this standoffs were added in the center of the inital stage of the intake. This helepd, but it jammed occasioanlly which was fixed by makign the first stage of the intake flaoting. This means it can rotate to allow the disk to enter more smoothly. After multiple changes to the gripping devices a final design was settled on. (Picture of diffrent intake rollers/chains with decribition and charts of each ones ability to intake )
 ]
 #glossary.add-term("Omni Wheel")[A shortened form of omni-directional wheel which is a wheel with rollers allowing it to be pushed side to side]
 #glossary.add-term("PTO")[Power take off device which takes the rotation of a motor and transfers it from one mechanism to another. Thye are often pneumatically powered, but can work with motors.]
