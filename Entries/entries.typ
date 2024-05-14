@@ -3,10 +3,11 @@
 
 #include "./First-Steps/first-steps.typ"
 #include "./First-Steps/3d-design-software.typ"
-#include "./file-structure-model-management.typ"
-#include "./taking-inventory.typ"
-#include "./inventory-results.typ"
-#include "./drive-train-types.typ"
-#include "./new-odometry-sensors.typ"
-#include "./drive-train-prototypes.typ"
-#include "./mecanum-drive-testing.typ"
+
+#include "./file-structure-model-management/file-structure-model-management.typ"
+#include "./inventory/taking-inventory.typ"
+#include "./inventory/inventory-results.typ"
+#include "./drivetrain/drive-train-types.typ"
+#include "./sensors/new-odometry-sensors.typ"
+#include "./drivetrain/drive-train-prototypes.typ"
+#include "./drivetrain/mecanum-drive-testing.typ"

@@ -2,7 +2,7 @@
 #import notebookinator: *
 #import themes.radial.components: *
 
-#show: create-body-entry(
+#show: create-body-entry.with(
   title: "First Steps",
   type: "decide",
   date: datetime(year: 2024, month: 3, day: 9),
@@ -14,7 +14,7 @@
 For the building of our previous robot even though it unfortunately did not make worlds there were a lot of aspects executed properly and poorly to be identified. This is important as it allows the team to know what works and to keep doing as well as what to change in order to improve for the next season.
 
 *Drive Train* The Drive Train is the base of any robot. The previous seasons drive train used 6 11w motors with the blue cartidge and a 48:60 gear ratio giving an RPM of 480. This spun 3 4" omni wheels with the middle one on each side being locked. 
-#components.pro-con(
+#pro-con(
   pros:  [
       - Speed
       - Pushing power
@@ -31,7 +31,7 @@ For the building of our previous robot even though it unfortunately did not make
 ) 
 
 *Intake* The intake was powered by 1 5.5w motor spining a series of 2" 45A flexwheels to interact with the game objects. The intake was also allowed to float so that it could raise over the goal to score the triball. 
-#components.pro-con(
+#pro-con(
   pros:  [
       - Holding ability
       - Scoring
@@ -46,7 +46,7 @@ For the building of our previous robot even though it unfortunately did not make
 ) 
 
 *Wings* These were pneumatically activated flaps that would extend 9in on either side of the robot. These allowed for a large amount of game objects to be pushed into the goal at one time. 
-#components.pro-con(
+#pro-con(
   pros:  [
       - Never failed
       - Reached corners
@@ -60,7 +60,7 @@ For the building of our previous robot even though it unfortunately did not make
 ) 
 
 *Flywheel Arm* this was a 4" Flexwheel with a ratchet spining at 3600 RPM off of a blue motor. Game obejcts were placed and laumched off of the flywheel. It could also be raised by a 5.5w motor assisted by rubber bands to shoot over other robots. 
-#components.pro-con(
+#pro-con(
   pros:  [
       - Consistent firing
       - Fast firing
@@ -76,7 +76,7 @@ For the building of our previous robot even though it unfortunately did not make
 ) 
 
 *Odometry Modules* These are 3 modules 2 vertical and 1 horizantal that are used to track the robots position. They are jointed to always be in contact with the ground, and have a 3.25" omni wheel spin an encoder to track movements. 
-#components.pro-con(
+#pro-con(
   pros:  [
       - Simple Design
 

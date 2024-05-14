@@ -5,7 +5,7 @@
 The best way to install the Notebookinator is as a local package. Make sure you
 have the following software installed on your computer:
 
-- [Typst](https://github.com/casey/just#installation)
+- [Typst](https://github.com/typst/typst#installation)
 - [Git](https://github.com/casey/just#installation)
 - [VSCode](https://code.visualstudio.com)
 - [just](https://github.com/casey/just#installation)

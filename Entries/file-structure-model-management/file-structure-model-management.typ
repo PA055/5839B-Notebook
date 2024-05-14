@@ -2,7 +2,7 @@
 #import notebookinator: *
 #import themes.radial.components: *
 
-#show: create-body-entry(
+#show: create-body-entry.with(
   title: "File Structure/Model Management",
   type: "management",
   date: datetime(year: 2024, month: 3, day: 10),
@@ -33,6 +33,3 @@ This system comes with a variety of advantages for the team. Indivudal axels or 
   caption: [ Inventor Files from the Over Under Season
   ]
 )
-
-
-]

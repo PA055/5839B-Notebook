@@ -2,7 +2,7 @@
 #import notebookinator: *
 #import themes.radial.components: *
 
-#show: create-body-entry(
+#show: create-body-entry.with(
   title: "Mecanum Drive Testing",
   type: "test",
   date: datetime(year: 2024, month: 3, day: 19),

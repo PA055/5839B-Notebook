@@ -2,7 +2,7 @@
 #import notebookinator: *
 #import themes.radial.components: *
 
-#show: create-body-entry(
+#show: create-body-entry.with(
   title: "New Odometry Sensors",
   type: "build",
   date: datetime(year: 2024, month: 3, day: 17),
@@ -22,28 +22,28 @@ New Design:
 - Newer 3.25in wheels used for better traction
 #figure(
     rect(fill: black.lighten(10%))[
-      #image("img/Vertical Odom Isometric.png", width: 80%)
+      #image("./Vertical Odom Isometric.png", width: 80%)
     ],
     caption: [ Isometric View of the New Vertical Odometry Sensor
     ]
   ) <odomDiagram>
 #figure(
     rect(fill: black.lighten(10%))[
-      #image("img/Vertical Odom Front.png", width: 80%)
+      #image("./Vertical Odom Front.png", width: 80%)
     ],
     caption: [ Front View of the New Vertical Odometry Sensor
     ]
   ) <odomDiagram>
 #figure(
     rect(fill: black.lighten(10%))[
-      #image("img/Horizantal Odom Isometric.png", width: 80%)
+      #image("./Horizantal Odom Isometric.png", width: 80%)
     ],
     caption: [ Isometric View of the New Horizantal Odometry Sensor
     ]
   ) <odomDiagram>
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Horizantal Odom Front.png", width: 80%)
+    #image("./Horizantal Odom Front.png", width: 80%)
   ],
   caption: [ Front View of the New Horizantal Odometry Sensor
   ]
