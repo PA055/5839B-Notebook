@@ -30,7 +30,7 @@
 
   #figure(
     rect(fill: black.lighten(10%))[
-      #image("img\order list frame work.png", width: 80%)
+      #image(".\order list frame work.png", width: 80%)
     ],
     caption: [ Order Spread Sheet with a calculation test
     ]
