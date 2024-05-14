@@ -13,7 +13,7 @@
 
   #figure(
     rect(fill: black.lighten(10%))[
-      #image("img\pre-inventory top half.png", width: 80%)
+      #image(".\pre-inventory top half.png", width: 80%)
     ],
     caption: [ Top half of the Inventory Spread Sheet
     ]
