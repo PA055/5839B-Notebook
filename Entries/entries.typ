@@ -2,3 +2,4 @@
 #include "./Game_Discussion/post_reveal.typ"
 
 #include "./First-Steps/first-steps.typ"
+#include "./First-Steps/3d-design-software.typ"
