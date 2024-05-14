@@ -20,7 +20,7 @@
   ) <odomDiagram>
   #figure(
     rect(fill: black.lighten(10%))[
-      #image("img\pre-inventory bot half.png", width: 80%)
+      #image(".\pre-inventory bot half.png", width: 80%)
     ],
     caption: [ Bottom half of the Inventory Spread Sheet
     ]
