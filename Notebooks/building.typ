@@ -157,7 +157,7 @@
 
 ]
 #create-body-entry(
-  title: "File Strcuture/Model Management",
+  title: "File Structure/Model Management",
   type: "management",
   date: datetime(year: 2024, month: 3, day: 10),
   author: "Davis Bodami",
@@ -231,7 +231,7 @@
   ]
 ]
 #create-body-entry(
-  title: "Invetnory Results",
+  title: "Inventory Results",
   type: "management",
   date: datetime(year: 2024, month: 3, day: 10),
   author: "Davis Bodami",
