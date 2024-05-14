@@ -6,3 +6,4 @@
 #include "./file-structure-model-management.typ"
 #include "./taking-inventory.typ"
 #include "./inventory-results.typ"
+#include "./drive-train-types.typ"
