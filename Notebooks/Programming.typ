@@ -357,7 +357,11 @@
 
   After the successful results of the VexCode prototype, we then started working on the implementation in the library, the OkapiLib code style guide mandates that we build off of the ChassisModel base class, we did this and used many of the same functions as the X-drive class as the drivetrains are almost the same, just some small differences in the kinematic equations.
 
+<<<<<<< HEAD
+  The next step was to work on finding the travel distance for each wheel, this was not implemented in the X-drive class from OkapiLib so we decided to delay the development until after the Kalman Filtering. 
+=======
   The next step was to work on finding the travel distance for each wheel, this could be done by normalizing the vector for linear movement and and then multiplying by the distance to travel, finally the turn angle needs to be added on top of that using the same equations as a tank drivetrain, and finally we need to cap the values and scale them so give the desired velocities.
+>>>>>>> 3f3e45b890fb4a87ddf1c51e66f0eeb3ba664b0e
 ]
 
 #create-body-entry(
