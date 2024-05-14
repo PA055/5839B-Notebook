@@ -26,7 +26,7 @@ The first model made was that of a Mecanum Drive:
 - New Odometry Sensor fitted in the rear
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Mecanum Drive Proto Isometric.png", width: 80%)
+    #image("./Mecanum Drive Proto Isometric.png", width: 80%)
   ],
   caption: [ Isometric View of the Prototype Mecanum Drive
   ]
