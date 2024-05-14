@@ -5,3 +5,4 @@
 #include "./First-Steps/3d-design-software.typ"
 #include "./file-structure-model-management.typ"
 #include "./taking-inventory.typ"
+#include "./inventory-results.typ"
