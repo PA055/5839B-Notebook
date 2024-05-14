@@ -186,7 +186,7 @@
     ],
     caption: [ Inventor Files from the Over Under Season
     ]
-  ) <odomDiagram>
+  )
 
   
 ]
@@ -500,4 +500,15 @@
 
   Overall the Drive was a success after a few minor tweeks and will serve as a good test base until the season starts. 
 ]
+#glossary.add-term("Omni Wheel")[A shortened form of omni-directional wheel which is a wheel with rollers allowing it to be pushed side to side]
+#glossary.add-term("PTO")[Power take off device which takes the rotation of a motor and transfers it from one mechanism to another. Thye are often pneumatically powered, but can work with motors.]
+#glossary.add-term("Odometry")[An algorithim which determines the robots position based on the movement of 3 sensor wheels.]
 
+#create-appendix-entry(title: "Glossary")[
+  #components.glossary()
+]
+
+#create-appendix-entry(title: "Credits")[
+   - Purdue Sigbots
+   - Stanford_O from the vex forums
+]

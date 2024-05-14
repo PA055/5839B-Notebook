@@ -1,11 +1,10 @@
-#import "./globals.typ"
+#import "./packages.typ": notebookinator
+#import notebookinator: glossary
 
-/// Add a term to the glossary
-/// - word (string): The word you're defining
-/// - definition (string): The definition of the word
-#let add-term(word, definition) = {
-  globals.glossary-entries.update(entries => {
-    entries.push((word: word, definition: definition))
-    entries
-  })
-}
+#glossary.add-term(
+  "Holonomic",
+)[
+  A vehicle is described as holonomic when it can move in any X/Y direction at any
+  time, regardless of its rotation. X-drive and Mecanum drivetrains are examples
+  of holonomic vehicles.
+]
