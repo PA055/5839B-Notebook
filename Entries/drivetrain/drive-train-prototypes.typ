@@ -67,21 +67,21 @@ Before we could enter school to test this I created a Model for a Swerve Drive m
 - 5.5w motor used to turn module
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Swerve Drive Module Isometric.png", width: 50%)
+    #image("./Swerve Drive Module Isometric.png", width: 50%)
   ],
   caption: [ Isometric View of the Prototype Swerve Drive Module
   ]
 ) <odomDiagram>
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Swerve Drive Module Side.png", width: 50%)
+    #image("./Swerve Drive Module Side.png", width: 50%)
   ],
   caption: [ Side View of the Prototype Swerve Drive Module
   ]
 ) <odomDiagram>
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Swerve Drive Module Front.png", width: 50%)
+    #image("./Swerve Drive Module Front.png", width: 50%)
   ],
   caption: [ Front View of the Prototype Swerve Drive Module
   ]
