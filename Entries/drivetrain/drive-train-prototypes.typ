@@ -40,7 +40,7 @@ The first model made was that of a Mecanum Drive:
 ) <odomDiagram>
 #figure(
   rect(fill: black.lighten(10%))[
-    #image("img/Mecanum Drive Proto Front.png", width: 80%)
+    #image("./Mecanum Drive Proto Front.png", width: 80%)
   ],
   caption: [ Front View of the Prototype Mecanum Drive
   ]
