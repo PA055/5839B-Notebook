@@ -1,173 +1,93 @@
-#import "/globals.typ"
+#let tournament-from-csv(section: "", team-name: "", raw-data) = {
+  let parse-match(name) = {
+    let sample-name = "Qualifier #1"
+    let result = name.matches(regex("Qualifier #(\d+)"))
 
-// TODO: document what ctx provides to the callback
-/// Utility function to help themes implement a table of contents.
-///
-/// Example Usage:
-/// ```typ
-/// #let toc() = utils.print-toc((frontmatter, body, appendix) => {
-///   for entry in body [
-///     #entry.title
-///     #box(width: 1fr, line(length: 100%, stroke: (dash: "dotted")))
-///     #entry.page-number
-///   ]
-/// })
-/// ```
-/// - callback (function): A function which takes the #link(<ctx>)[ctx] of all entries as input, and returns the content of the entire table of contents.
-/// -> content
-#let print-toc(callback) = locate(
-  loc => {
-    // Each of the types of entries have their own state variable and label, so we need to decide which ones to use
-    let helper(type) = {
-      let (state, markers) = if type == "frontmatter" {
-        (
-          globals.frontmatter-entries,
-          query(selector(<notebook-frontmatter>), loc),
-        )
-      } else if type == "body" {
-        (globals.entries, query(selector(<notebook-body>), loc))
-      } else if type == "appendix" {
-        (globals.appendix-entries, query(selector(<notebook-appendix>), loc))
-      } else {
-        panic("No valid entry type selected.")
-      }
-
-      let result = ()
-
-      for (index, entry) in state.final(loc).enumerate() {
-        let page-number = counter(page).at(markers.at(index).location()).at(0)
-        let ctx = entry.ctx
-        ctx.page-number = page-number
-        result.push(ctx)
-      }
-      return result
+    if result == () {
+      return (false, name)
     }
-
-    let frontmatter-entries = helper("frontmatter")
-    let body-entries = helper("body")
-    let appendix-entries = helper("appendix")
-
-    callback(frontmatter-entries, body-entries, appendix-entries)
-  },
-)
-
-/// A utility function meant to help themes implement a glossary
-/// - callback (function): A function that returns the content of the glossary
-/// -> content
-#let print-glossary(callback) = locate(
-  loc => {
-    let sorted-glossary = globals.glossary-entries.final(loc).sorted(key: ((word, definition)) => word)
-    callback(sorted-glossary)
-  },
-)
-
-/// A utility function that does the calculation for decision matrices for you
-///
-/// Example Usage:
-///
-/// ```typ
-/// #calc-decision-matrix(
-///   properties: (
-///     (name: "Versatility", weight: 2),
-///     (name: "Flavor", weight: 6),
-///     (name: "Crunchiness"), // Defaults to a weight of 1
-///   ),
-///   ("Sweet potato", 2, 5, 1),
-///   ("Red potato", 2, 1, 3),
-///   ("Yellow potato", 2, 2, 3),
-/// )
-/// ```
-///
-/// The function returns an array of dictionaries, one for each choice.
-/// Here's an example of what one of these dictionaries might look like:
-///
-/// ```typ
-/// #(name: "Sweet potato", values: (
-///   Versatility: (value: 3, highest: true),
-///   Flavor: (value: 1, highest: false),
-///   Crunchiness: (value: 1, highest: false),
-///   total: (value: 5, highest: false),
-/// )),
-/// ```
-/// - properties (array string): A list of the properties that each choice will be rated by
-/// - ..choices (array): All of the choices that are being rated. The first element of the array should be the name of the
-/// -> array
-#let calc-decision-matrix(properties: (), ..choices) = {
-  for choice in choices.pos() {
-    assert(
-      choice.len() - 1 == properties.len(),
-      message: "The number of supplied values did not match the number of properties.",
-    )
+    return (true, [Q#result.at(0).captures.at(0)])
   }
 
-  // This function follows the follow steps to calculate the outcome of a decision matrix:
-  // 1. Applies all of the weights to each of the values
-  // 2. Calculates the total for each choice
-  // 3. Adds all of the values to a dictionary, labeling them with their respective property names
-  // 4. Iterates over each of the newly organized choices to determine which is the highest for each category (including the total)
-  let choices = choices.pos().enumerate().map(
-    ((index, choice)) => {
-      let name = choice.at(0)
-      let values = choice.slice(1)
+  let data = csv.decode(raw-data)
+  data = data.slice(1)
+  let result = ()
 
-      // 1.  Weight the values
-      values = values.enumerate().map(
-        ((index, value)) => value * properties.at(index).at("weight", default: 1),
+  for row in data {
+    if row.contains(team-name) {
+      let winning-alliance = row.at(8)
+
+      let match-name = parse-match(row.at(1))
+
+      if section == "qualifications" and not match-name.at(0) { continue }
+      if section == "eliminations" and match-name.at(0) { continue }
+
+      let match = (
+        match: match-name.at(1),
+        red-alliance: (teams: (row.at(2), row.at(3)), score: row.at(6)),
+        blue-alliance: (teams: (row.at(4), row.at(5)), score: row.at(7)),
+        auton: false,
+        awp: false,
       )
 
-      // 2. Calc total
-      let total = values.sum()
+      match.won = if (
+        (
+          match.red-alliance.teams.contains(team-name) and winning-alliance == "Red"
+        ) or (
+          match.blue-alliance.teams.contains(team-name) and winning-alliance == "Blue"
+        )
+      ) { true } else { false }
 
-      // 3. Assign the value names
-      let result = (:)
-      for (index, value) in values.enumerate() {
-        result.insert(properties.at(index).name, (value: value, highest: false))
-      }
-      result.insert("total", (value: total, highest: false))
-
-      (name: name, values: result)
-    },
-  )
-
-  // 4. Check if highest
-  properties.push((name: "total")) // Treat total as a property as well
-  for property in properties {
-    let highest = (index: 0, value: 0) // Records the index of the choice which had the highest total
-
-    for (index, choice) in choices.enumerate() {
-      let property-value = choice.values.at(property.name).value
-
-      if property-value > highest.value {
-        highest.index = index
-        highest.value = property-value
-      }
+      result.push(match)
     }
-    choices.at(highest.index).values.at(property.name).highest = true;
   }
 
-  return choices
+  result
 }
 
-/// Returns the raw image data, not image content
-/// You'll still need to run image.decode on the result
-///
-/// - raw-icon (string): The raw data for the image. Must be svg data.
-/// - fill (color): The new icon color
-/// -> string
-#let change-icon-color(raw-icon: "", fill: red) = {
-  return raw-icon.replace("<path", "<path style=\"fill: " + fill.to-hex() + "\"")
+#let plot-from-csv(data) = {
+  let raw-data = csv.decode(data)
+  let labels = raw-data.at(0)
+
+  let data = ()
+
+  for (label-index, label) in labels.enumerate() {
+    if label-index == 0 { continue }
+    let label-data = ()
+
+    for (row-index, row) in raw-data.enumerate() {
+      if row-index == 0 { continue }
+      label-data.push((row-index, float(row.at(label-index)))) // TODO: actually parse the datetime (I need millisecond accuracy for this)
+    }
+    data.push((name: label, data: label-data))
+  }
+
+  return data
 }
 
-/// Takes the path to an icon as input, recolors that icon, and then returns the decoded image as output.
-///
-/// - path (string): The path to the icon. Must point to a svg.
-/// - fill (color): The new icon color.
-/// - width (ratio length): Width of the image
-/// - height (ratio length): height of the image
-/// - fit (string): How the image should adjust itself to a given area. Takes either "cover", "contain", or "stretch"
-/// -> content
-#let colored-icon(path, fill: red, width: 100%, height: 100%, fit: "contain") = {
-  let raw-icon = read(path)
-  let raw-colored-icon = raw-icon.replace("<path", "<path style=\"fill: " + fill.to-hex() + "\"")
-  return image.decode(raw-colored-icon, width: width, height: height, fit: fit)
+#let parse-timestamp(timestamp) = {
+  let data = timestamp.matches(regex("(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2}).(\d{3})"))
+  let captures = data.at(0).captures
+
+  datetime(
+    year: int(captures.at(0)),
+    month: int(captures.at(1)),
+    day: int(captures.at(2)),
+    hour: int(captures.at(3)),
+    minute: int(captures.at(4)),
+    second: int(captures.at(5)),
+  )
 }
+
+#let grid = grid.with(columns: (1fr, 1fr), gutter: 20pt)
+
+#let get-page-number(label) = locate(loc => {
+  let elements = query(label, loc)
+  if elements.len() == 0 {
+    panic(label)
+  }
+
+  [
+    #counter(page).at(elements.first().location()).first()
+  ]
+})

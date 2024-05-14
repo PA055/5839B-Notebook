@@ -165,7 +165,7 @@
 
 ]
 #create-body-entry(
-  title: "File Strcuture/Model Management",
+  title: "File Structure/Model Management",
   type: "management",
   date: datetime(year: 2024, month: 3, day: 10),
   author: "Davis Bodami",
@@ -194,7 +194,7 @@
     ],
     caption: [ Inventor Files from the Over Under Season
     ]
-  ) <odomDiagram>
+  )
 
   
 ]
@@ -239,7 +239,7 @@
   ]
 ]
 #create-body-entry(
-  title: "Invetnory Results",
+  title: "Inventory Results",
   type: "management",
   date: datetime(year: 2024, month: 3, day: 10),
   author: "Davis Bodami",
